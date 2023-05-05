@@ -1,5 +1,7 @@
 #!/usr/local/bin/bash
 
+tar -xf tests.tar.xz
+
 cc kcovtrace.c -o kcovtrace
 
 export WORKDIR=$(pwd)
