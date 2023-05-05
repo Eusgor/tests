@@ -13,7 +13,12 @@ export KPATH=$WORKDIR/rawfile
 rm $KPATH
 
 cd tests/sys
-acl/00; acl/01; acl/02; acl/03; acl/04
+
+$KCOVTRACE acl/00
+$KCOVTRACE acl/01
+$KCOVTRACE acl/02
+$KCOVTRACE acl/03
+$KCOVTRACE acl/04
 
 $KCOVTRACE aio/aio_kqueue_test
 $KCOVTRACE aio/lio_kqueue_test
