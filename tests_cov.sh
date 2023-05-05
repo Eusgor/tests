@@ -8,8 +8,6 @@ export WORKDIR=$(pwd)
 export KCOVTRACE=$WORKDIR/kcovtrace
 export KPATH=$WORKDIR/rawfile
 
-#export KCOVTRACE=/root/kcovtrace/kcovtrace KPATH=/root/kcovtrace/rawfile
-
 rm $KPATH
 
 cd tests/sys
@@ -948,7 +946,6 @@ $KCOVTRACE vm/shared_shadow_inval_test shared_shadow_inval__collapse_blockxfer_n
 $KCOVTRACE vm/shared_shadow_inval_test shared_shadow_inval__collapse_blockxfer_fullmod
 
 kyua test vmm/vmm_cred_jail
-
 
 cd $WORKDIR
 
