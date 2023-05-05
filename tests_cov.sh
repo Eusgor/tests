@@ -949,10 +949,9 @@ kyua test vmm/vmm_cred_jail
 
 cd $WORKDIR
 
-#for file in /usr/lib/debug/boot/kernel/* ; do nm -elP $file ; done > nmlines
 if ! [ -f "nmlines" ] ; then
-    echo "Executing nm -elP /usr/lib/debug/boot/kernel/kernel.debug"
-    nm -elP /usr/lib/debug/boot/kernel/kernel.debug > nmlines
+    echo "Collecting nmlines"
+    for file in /usr/lib/debug/boot/kernel/* ; do nm -elP $file ; done > nmlines
 fi
 
 echo "Executing python cov.py"
