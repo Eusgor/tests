@@ -952,18 +952,11 @@ kyua test vmm/vmm_cred_jail
 
 cd $WORKDIR
 
-if ! [ -f "cloc" ] ; then
-    echo "Executing cloc --include-lang="C,C/C++ Header" --csv --report-file=cloc /usr/src/sys"
-    cloc --include-lang="C,C/C++ Header" --csv --report-file=cloc /usr/src/sys
-fi
-
 #for file in /usr/lib/debug/boot/kernel/* ; do nm -elP $file ; done > nmlines
 if ! [ -f "nmlines" ] ; then
     echo "Executing nm -elP /usr/lib/debug/boot/kernel/kernel.debug"
     nm -elP /usr/lib/debug/boot/kernel/kernel.debug > nmlines
 fi
-
-#addr2line -fp -e /usr/lib/debug/boot/kernel/kernel.debug < rawfile > trace
 
 echo "Executing python cov.py"
 python cov.py
