@@ -107,14 +107,6 @@ int main(int argc, char **argv)
 
 	if (argc == 1)
 		fprintf(stderr, "usage: kcovtrace program [args...]\n"), exit(1);
-	nmfile = fopen(KERNEL, "r");
-	if (!nmfile)
-		perror("File "KERNEL), exit(1);
-	fclose(nmfile);
-	nmfile = fopen(KERNDIR, "r");
-	if (!nmfile) 
-		perror("Directory "KERNDIR), exit(1);
-	fclose(nmfile);
 		
 	fd = open(KCOV_PATH, O_RDWR);
 	if (fd == -1)
@@ -126,6 +118,7 @@ int main(int argc, char **argv)
 			       PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
 	if ((void *)cover == MAP_FAILED)
 		perror("mmap"), exit(1);
+	
 	pid = fork();
 	if (pid < 0)
 		perror("fork"), exit(1);
